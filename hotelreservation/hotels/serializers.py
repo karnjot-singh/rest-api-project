@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from .models import Hotel
+from .models.hotel import Hotel
 
 class HotelSerializer(serializers.ModelSerializer):
     class Meta:
