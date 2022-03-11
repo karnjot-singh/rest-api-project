@@ -67,6 +67,11 @@ def reservationConfirmation(request):
     except:
         errors["checkout"] = [ "Ensure that checkout has valid format YYYY-MM-DD" ]
 
+    if "checkin" not in errors and "checkout" not in errors:
+
+        if not (datetime.strptime(data['checkin'], '%Y-%m-%d') < datetime.strptime(data['checkout'], '%Y-%m-%d')):
+            errors["checkin"] = ["Ensure that checkout date is greater than checkin date"]
+
     guests=None
     if "guests_list" in data: 
         guests = data['guests_list']
