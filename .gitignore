@@ -1,1 +1,3 @@
 hotelreservation/.env
+hotelreservation/hotels/migrations
+hotelreservation/hotelreservation/__pycache__
