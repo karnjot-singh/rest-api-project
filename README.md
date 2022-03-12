@@ -13,3 +13,47 @@ A Rest API Project using Django framework to make use of rest-framework to creat
 ```
 
 ## Following are the APIs available and their expected inputs/outputs
+1. /api/hotel
+  This API endpoint is used to create new hotel and fetch details of exisiting hotels.
+  - Make a POST request to create a new hotel<br>
+  >Input for this API is
+  ```
+  {
+    "name": "Halifax Inn",
+    "description": "Free Breakfast",
+    "availability": "true",
+    "phone_number": "9876543210",
+    "city": "Halifax",
+    "price": "130"
+  }
+  ```
+  > Output will be
+  ```
+  Status Code - 201 
+  {
+    "id": 1,
+    "name": "Halifax Inn",
+    "description": "Free Breakfast",
+    "availability": true,
+    "phone_number": "9876543210",
+    "city": "Halifax",
+    "price": 130
+}
+  ```
+  - Make a GET request to fetch exisiting hotels details
+  > Output will be
+  ```
+  Status Code - 200
+  [
+    {
+        "id": 1,
+        "name": "Halifax Inn",
+        "description": "Free Breakfast",
+        "availability": true,
+        "phone_number": "9876543210",
+        "city": "Halifax",
+        "price": 130
+    },
+    ....
+  ]
+  ```
