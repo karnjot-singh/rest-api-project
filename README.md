@@ -57,3 +57,57 @@ A Rest API Project using Django framework to make use of rest-framework to creat
     ....
   ]
   ```
+2. /api/makereservation
+  This API endpoint is used to make a new reservation for existing hotel.
+  - Make a POST request to make a new reservation<br>
+  >Input for this API is (NOTE hotel_name should be present in database)
+  ```
+  { "hotel_name": "Halifax Inn", 
+  "checkin": "2022-03-18", 
+  "checkout": "2022-03-19", 
+  "guests_list": [  
+           { "guest_name" : "Guest one", 
+             "gender": "M" 
+           },
+           { "guest_name" : "Guest two", 
+             "gender": "f" 
+           },
+           ...
+       ] 
+  } 
+  ```
+  > Output will be
+  ```
+  Status Code - 200
+  {
+    "confirmation_number": "Hal000001"
+}
+  ```
+  - Make a GET request to fetch all reservation details
+  > Output will be
+  ```
+  Status Code - 200
+  [
+    {
+        "id": 1,
+        "hotel": 1,
+        "confirmation_number": "Hal000001",
+        "check_in": "2022-03-18",
+        "check_out": "2022-03-19",
+        "guest_list": [
+            {
+                "id": 1,
+                "name": "Guest one",
+                "gender": "M"
+            },
+            {
+                "id": 2,
+                "name": "Guest two",
+                "gender": "f"
+            },
+            ...
+        ]
+    },
+    ...
+  ]
+  ```
